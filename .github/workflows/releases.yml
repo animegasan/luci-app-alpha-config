@@ -14,34 +14,31 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up OpenWRT SDK
-      uses: openwrt/actions/setup-openwrt@v1
-      with:
-        version: 21.02.0
-        profile: x86_64
-        feeds-update: true
+      run: |
+        git clone https://github.com/openwrt/openwrt.git
+        cd openwrt
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
 
     - name: Install dependencies
       run: |
         sudo apt-get update
         sudo apt-get install -y build-essential libncurses5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python
 
-    - name: Prepare feeds
-      run: |
-        ./scripts/feeds update -a
-        ./scripts/feeds install -a
-
     - name: Configure
       run: |
+        cd openwrt
         make defconfig
         make menuconfig
         # You may customize the configuration based on your requirements
 
     - name: Compile IPK
       run: |
+        cd openwrt
         make package/luci-app-alpha-config/compile V=s
 
     - name: Upload IPK artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ipk-artifacts
-        path: bin/packages/x86_64/
+        path: openwrt/bin/packages/x86_64/
