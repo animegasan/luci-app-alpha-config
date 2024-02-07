@@ -1,12 +1,12 @@
 {
-        "luci-app-argon-config": {
-                "description": "Grant access to Argon config",
+        "luci-app-alpha-config": {
+                "description": "Grant access to alpha config",
                 "read": {
                         "file": {
                                 "/www/luci-static/alpha/gaya/dashboard.png": [ "read" ],
                                 "/www/luci-static/alpha/style/login.png": [ "read" ]
                         },
-                        "uci": [ "argon-config" ]
+                        "uci": [ "alpha" ]
                 },
                 "write": {
                         "file": {
@@ -14,7 +14,7 @@
                                 "/www/luci-static/alpha/style/login.png": [ "write" ],
                                 "/bin/chmod *": [ "exec" ]
                         },
-                        "uci": [ "argon-config" ]
+                        "uci": [ "alpha" ]
                 }
         }
 }
