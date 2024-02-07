@@ -14,9 +14,9 @@ return view.extend({
     handleReset: null,
     render: function () {
         var m, s, o;
-        m = new form.Map('argon-config', _('Alpha theme configuration'), _('Here you can set the blur and transparency of the login page of alpha theme, and manage the background pictures and videos. Chrome is recommended.'));
+        m = new form.Map('alpha', _('Alpha theme configuration'), _('Here you can set the blur and transparency of the login page of alpha theme, and manage the background pictures and videos. Chrome is recommended.'));
 
-        s = m.section(form.TypedSection, 'argon-config');
+        s = m.section(form.TypedSection, 'alpha');
         s.anonymous = true;
 
         o = s.option(form.FileUpload, 'dashboard', _('Dashboard Background'));
