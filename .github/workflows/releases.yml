@@ -23,8 +23,7 @@ jobs:
         git clone https://github.com/openwrt/openwrt.git
         cd openwrt
         ./scripts/feeds update -a
-        ./scripts/feeds install -a
-        git clone -b master https://github.com/${{ github.repository }}.git package/downloads/luci-app-alpha-config
+        git clone -b master https://github.com/${{ github.repository }}.git package/luci-app-alpha-config
         make package/luci-app-alpha-config/compile V=s
 
     - name: Upload IPK artifacts
