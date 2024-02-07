@@ -9,7 +9,7 @@ on:
         default: 'false'
   push:
     branches:
-      - 'main'
+      - 'master'
     paths:
       - 'luci-app-alpha-config/Makefile'
 env:
@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@master
         with:
           fetch-depth: 0
-          ref: 'main'
+          ref: 'master'
 
       - name: Check version
         id: check_version
@@ -56,7 +56,7 @@ jobs:
 
 
   job_build_ipk:
-    name: Build luci-app-alpha-config (main)
+    name: Build luci-app-alpha-config (master)
     needs: job_check
     if: needs.job_check.outputs.has_update == 'true'
     runs-on: ubuntu-latest
@@ -89,13 +89,13 @@ jobs:
           echo "src-git-full packages https://github.com/openwrt/packages.git;openwrt-21.02" >> feeds.conf
           echo "src-git-full luci https://git.openwrt.org/project/luci.git;openwrt-21.02" >> feeds.conf
           echo "src-git-full routing https://git.openwrt.org/feed/routing.git;openwrt-21.02"  >> feeds.conf
-          git clone -b main https://github.com/${{ github.repository }}.git package/downloads/luci-app-alpha-config
+          git clone -b master https://github.com/${{ github.repository }}.git package/downloads/luci-app-alpha-config
           ./scripts/feeds update -a
           echo "CONFIG_PACKAGE_luci-app-alpha-config=m" > .config
           ./scripts/feeds install -d n luci-app-alpha-config
           make download -j8
 
-      - name: Configure luci-app-alpha-config (main)
+      - name: Configure luci-app-alpha-config (master)
         run: |
           cd sdk
           ./scripts/feeds install luci-app-alpha-config
@@ -107,7 +107,7 @@ jobs:
           echo "CONFIG_PACKAGE_luci-app-alpha-config=m" >> .config
           make defconfig
 
-      - name: Compile luci-app-alpha-config (main)
+      - name: Compile luci-app-alpha-config (master)
         id: compile
         run: |
           cd sdk
@@ -119,7 +119,7 @@ jobs:
           echo "status=success" >> $GITHUB_OUTPUT
           echo "FIRMWARE=$PWD" >> $GITHUB_ENV
 
-      - name: Upload luci-app-alpha-config (main) ipks to release
+      - name: Upload luci-app-alpha-config (master) ipks to release
         uses: softprops/action-gh-release@v1
         if: steps.compile.outputs.status == 'success'
         env:
