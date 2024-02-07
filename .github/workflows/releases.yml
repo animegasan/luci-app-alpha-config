@@ -1,32 +1,41 @@
-name: Test Build
+name: Build IPK
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
-    name: ${{ matrix.arch }} build
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        arch:
-          - x86_64
-          - mips_24kc
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Build
-        uses: openwrt/gh-action-sdk@main
-        env:
-          ARCH: ${{ matrix.arch }}
+    - name: Set up OpenWRT SDK
+      uses: openwrt-compat/openwrt-sdk-action@v1
+      with:
+        profile: generic
+        version: 21.02.0
+        feeds-update: true
 
-      - name: Store packages
-        uses: actions/upload-artifact@v2
-        with:
-          name: ${{ matrix.arch}}-packages
-          path: bin/packages/${{ matrix.arch }}/packages/*.ipk
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential libncurses5-dev zlib1g-dev gawk git gettext libssl-dev xsltproc wget unzip python3 python3-pip
+
+    - name: Update feeds and install packages
+      run: |
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
+
+    - name: Compile IPK
+      run: |
+        make package/luci-app-alpha-config/compile V=s
+
+    - name: Upload IPK artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: ipk-artifacts
+        path: bin/packages/<architecture>/packages
