@@ -13,25 +13,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up OpenWRT SDK
-      run: |
-        git clone https://github.com/openwrt/openwrt.git
-        cd openwrt
-        ./scripts/feeds update -a
-        ./scripts/feeds install -a
-
     - name: Install dependencies
       run: |
         sudo apt-get update
         sudo apt-get install build-essential clang flex bison g++ gawk gcc-multilib g++-multilib gettext git libncurses-dev libssl-dev python3-distutils rsync unzip zlib1g-dev file wget tar
 
-    - name: Prepare feeds
-      run: |
-        ./scripts/feeds update -a
-        ./scripts/feeds install -a
-
     - name: Compile IPK and Clone luci-app-alpha-config repository
       run: |
+        git clone https://github.com/openwrt/openwrt.git
+        cd openwrt
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
         git clone -b master https://github.com/${{ github.repository }}.git package/downloads/luci-app-alpha-config
         make package/luci-app-alpha-config/compile V=s
 
