@@ -44,6 +44,14 @@ jobs:
           echo "latest_version: ${latest_version}"
           echo "latest_release: ${latest_release}"
           echo "has_update: ${has_update}"
+      - name: Generate new tag & release
+        if: steps.check_version.outputs.has_update == 'true'
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: Alpha Config - OpenWrt
+          tag_name: ${{steps.check_version.outputs.latest_version}}
 
 
   job_build_alpha:
@@ -113,4 +121,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{needs.job_check.outputs.alpha_version}}
-          files: ${{ env.FIRMWARE }}/base/luci-theme*.ipk
+          files: ${{ env.FIRMWARE }}/base/luci-app-*.ipk
