@@ -10,9 +10,6 @@
 'require ui';
 
 return view.extend({
-	handleSaveApply: null,
-	handleSave: null,
-	handleReset: null,
 	render: function () {
 		var m, s, o;
 		var bg_path = '/www/luci-static/alpha/background/';
@@ -47,6 +44,69 @@ return view.extend({
 			.catch(function(e) { ui.addNotification(null, E('p', e.message)); });
 		};
 		o.modalonly = true;
+
+		s = m.section(form.TypedSection, null , _('Navigation bar configuration'), _('You can arrange the order of applications in navigation bar according to your wishes'));
+		s.anonymous = true;
+
+		o = s.option(form.ListValue, 'nav_01', _('Navigation line 01'));
+		o.value('/cgi-bin/luci/admin/modem/main', _('Modem'));
+		o.value('/cgi-bin/luci/admin/network/network', _('Network'));
+		o.value('/cgi-bin/luci/admin/services/openclash', _('Open Clash'));
+		o.value('/cgi-bin/luci/admin/status/overview', _('Overview'));
+		o.value('/cgi-bin/luci/admin/services/ttyd', _('Terminal'));
+		o.value('/cgi-bin/luci/admin/nas/tinyfm', _('Tiny File Manager'));
+		o.value('none', _('None'));
+		o.rmempty = false;
+
+		o = s.option(form.ListValue, 'nav_02', _('Navigation line 02'));
+		o.value('/cgi-bin/luci/admin/modem/main', _('Modem'));
+		o.value('/cgi-bin/luci/admin/network/network', _('Network'));
+		o.value('/cgi-bin/luci/admin/services/openclash', _('Open Clash'));
+		o.value('/cgi-bin/luci/admin/status/overview', _('Overview'));
+		o.value('/cgi-bin/luci/admin/services/ttyd', _('Terminal'));
+		o.value('/cgi-bin/luci/admin/nas/tinyfm', _('Tiny File Manager'));
+		o.value('none', _('None'));
+		o.rmempty = false;
+
+		o = s.option(form.ListValue, 'nav_03', _('Navigation line 03'));
+		o.value('/cgi-bin/luci/admin/modem/main', _('Modem'));
+		o.value('/cgi-bin/luci/admin/network/network', _('Network'));
+		o.value('/cgi-bin/luci/admin/services/openclash', _('Open Clash'));
+		o.value('/cgi-bin/luci/admin/status/overview', _('Overview'));
+		o.value('/cgi-bin/luci/admin/services/ttyd', _('Terminal'));
+		o.value('/cgi-bin/luci/admin/nas/tinyfm', _('Tiny File Manager'));
+		o.value('none', _('None'));
+		o.rmempty = false;
+
+		o = s.option(form.ListValue, 'nav_04', _('Navigation line 04'));
+		o.value('/cgi-bin/luci/admin/modem/main', _('Modem'));
+		o.value('/cgi-bin/luci/admin/network/network', _('Network'));
+		o.value('/cgi-bin/luci/admin/services/openclash', _('Open Clash'));
+		o.value('/cgi-bin/luci/admin/status/overview', _('Overview'));
+		o.value('/cgi-bin/luci/admin/services/ttyd', _('Terminal'));
+		o.value('/cgi-bin/luci/admin/nas/tinyfm', _('Tiny File Manager'));
+		o.value('none', _('None'));
+		o.rmempty = false;
+
+		o = s.option(form.ListValue, 'nav_05', _('Navigation line 05'));
+		o.value('/cgi-bin/luci/admin/modem/main', _('Modem'));
+		o.value('/cgi-bin/luci/admin/network/network', _('Network'));
+		o.value('/cgi-bin/luci/admin/services/openclash', _('Open Clash'));
+		o.value('/cgi-bin/luci/admin/status/overview', _('Overview'));
+		o.value('/cgi-bin/luci/admin/services/ttyd', _('Terminal'));
+		o.value('/cgi-bin/luci/admin/nas/tinyfm', _('Tiny File Manager'));
+		o.value('none', _('None'));
+		o.rmempty = false;
+
+		o = s.option(form.ListValue, 'nav_06', _('Navigation line 06'));
+		o.value('/cgi-bin/luci/admin/modem/main', _('Modem'));
+		o.value('/cgi-bin/luci/admin/network/network', _('Network'));
+		o.value('/cgi-bin/luci/admin/services/openclash', _('Open Clash'));
+		o.value('/cgi-bin/luci/admin/status/overview', _('Overview'));
+		o.value('/cgi-bin/luci/admin/services/ttyd', _('Terminal'));
+		o.value('/cgi-bin/luci/admin/nas/tinyfm', _('Tiny File Manager'));
+		o.value('none', _('None'));
+		o.rmempty = false;
 
 		return m.render();
 	},
