@@ -50,6 +50,7 @@ return view.extend({
 
 		o = s.option(form.ListValue, 'nav_01', _('Navigation line 01'));
 		o.value('/cgi-bin/luci/admin/modem/main', _('Modem'));
+		o.value('/cgi-bin/luci/admin/services/neko', _('Neko'));
 		o.value('/cgi-bin/luci/admin/network/network', _('Network'));
 		o.value('/cgi-bin/luci/admin/services/openclash', _('Open Clash'));
 		o.value('/cgi-bin/luci/admin/status/overview', _('Overview'));
@@ -60,6 +61,7 @@ return view.extend({
 
 		o = s.option(form.ListValue, 'nav_02', _('Navigation line 02'));
 		o.value('/cgi-bin/luci/admin/modem/main', _('Modem'));
+		o.value('/cgi-bin/luci/admin/services/neko', _('Neko'));
 		o.value('/cgi-bin/luci/admin/network/network', _('Network'));
 		o.value('/cgi-bin/luci/admin/services/openclash', _('Open Clash'));
 		o.value('/cgi-bin/luci/admin/status/overview', _('Overview'));
@@ -70,6 +72,7 @@ return view.extend({
 
 		o = s.option(form.ListValue, 'nav_03', _('Navigation line 03'));
 		o.value('/cgi-bin/luci/admin/modem/main', _('Modem'));
+		o.value('/cgi-bin/luci/admin/services/neko', _('Neko'));
 		o.value('/cgi-bin/luci/admin/network/network', _('Network'));
 		o.value('/cgi-bin/luci/admin/services/openclash', _('Open Clash'));
 		o.value('/cgi-bin/luci/admin/status/overview', _('Overview'));
@@ -80,6 +83,7 @@ return view.extend({
 
 		o = s.option(form.ListValue, 'nav_04', _('Navigation line 04'));
 		o.value('/cgi-bin/luci/admin/modem/main', _('Modem'));
+		o.value('/cgi-bin/luci/admin/services/neko', _('Neko'));
 		o.value('/cgi-bin/luci/admin/network/network', _('Network'));
 		o.value('/cgi-bin/luci/admin/services/openclash', _('Open Clash'));
 		o.value('/cgi-bin/luci/admin/status/overview', _('Overview'));
@@ -90,6 +94,7 @@ return view.extend({
 
 		o = s.option(form.ListValue, 'nav_05', _('Navigation line 05'));
 		o.value('/cgi-bin/luci/admin/modem/main', _('Modem'));
+		o.value('/cgi-bin/luci/admin/services/neko', _('Neko'));
 		o.value('/cgi-bin/luci/admin/network/network', _('Network'));
 		o.value('/cgi-bin/luci/admin/services/openclash', _('Open Clash'));
 		o.value('/cgi-bin/luci/admin/status/overview', _('Overview'));
@@ -100,6 +105,7 @@ return view.extend({
 
 		o = s.option(form.ListValue, 'nav_06', _('Navigation line 06'));
 		o.value('/cgi-bin/luci/admin/modem/main', _('Modem'));
+		o.value('/cgi-bin/luci/admin/services/neko', _('Neko'));
 		o.value('/cgi-bin/luci/admin/network/network', _('Network'));
 		o.value('/cgi-bin/luci/admin/services/openclash', _('Open Clash'));
 		o.value('/cgi-bin/luci/admin/status/overview', _('Overview'));
