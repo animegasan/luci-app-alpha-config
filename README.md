@@ -17,4 +17,4 @@
 </div>
 <hr/>
 
-![image](https://github.com/animegasan/luci-app-alpha-config/assets/14136053/57afd701-49f9-4fe9-8f35-012cfbb8120a)
+![image](https://github.com/user-attachments/assets/25f59fae-00e1-4c98-9be4-de6ce927ac15)
