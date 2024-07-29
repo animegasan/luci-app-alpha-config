@@ -17,4 +17,10 @@
 </div>
 <hr/>
 
+## Install via Terminal
+```
+curl -s https://raw.githubusercontent.com/animegasan/luci-app-alpha-config/master/install.sh | sh
+```
+
+# Preview
 ![image](https://github.com/user-attachments/assets/25f59fae-00e1-4c98-9be4-de6ce927ac15)
