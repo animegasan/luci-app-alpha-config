@@ -87,8 +87,8 @@ return view.extend({
 		o = s.option(form.Flag, 'enable', _('Navigation bar'), _('Enable navigation bar.'));
 		o.rmempty = false;
 		o.modalonly = true;
-		o.enabled = _('Enable');
-		o.disabled = _('Disable');
+		o.enabled = 'Enable';
+		o.disabled = 'Disable';
 		o.default = o.enabled;
 		o = s.option(form.Value, 'line', _('Line number'), _('Enter a line number between 1 to 10.'));
 		o.rmempty = false;
@@ -98,8 +98,8 @@ return view.extend({
 		o = s.option(form.Flag, 'newtab', _('Open in new tab'), _('Enable open links in a new tab.'));
 		o.rmempty = false;
 		o.modalonly = true;
-		o.enabled = _('Yes');
-		o.disabled = _('No');
+		o.enabled = 'Yes';
+		o.disabled = 'No';
 		o = s.option(form.FileUpload, 'icon', _('Icon'), _('Upload PNG file with size 256x256.'));
 		o.rmempty = false;
 		o.modalonly = true;
