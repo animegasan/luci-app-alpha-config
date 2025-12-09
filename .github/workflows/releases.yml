@@ -12,6 +12,7 @@ on:
       - 'master'
     paths:
       - 'luci-app-alpha-config/Makefile'
+      - 'luci-app-alpha-config/po'
 env:
   TZ: Asia/Jakarta
 
