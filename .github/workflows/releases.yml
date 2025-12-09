@@ -105,7 +105,7 @@ jobs:
           echo "CONFIG_ALL_KMODS=n" >> .config
           echo "CONFIG_ALL=n" >> .config
           echo "CONFIG_AUTOREMOVE=n" >> .config
-          echo "CONFIG_LUCI_LANG_zh_cn=n" >> .config
+          echo "CONFIG_LUCI_LANG_zh_Hans=n" >> .config
           echo "CONFIG_PACKAGE_luci-app-alpha-config=m" >> .config
           make defconfig
       - name: Compile Alpha Config (master)
