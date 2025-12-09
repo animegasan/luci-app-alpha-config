@@ -10,10 +10,11 @@ on:
   push:
     branches:
       - 'master'
-    # paths:
-    #   - 'luci-app-alpha-config/Makefile'
+    paths:
+      - 'luci-app-alpha-config/Makefile'
 env:
   TZ: Asia/Jakarta
+
 
 jobs:
   job_check:
@@ -43,7 +44,6 @@ jobs:
           echo "latest_version: ${latest_version}"
           echo "latest_release: ${latest_release}"
           echo "has_update: ${has_update}"
-
       - name: Generate new tag & release
         if: steps.check_version.outputs.has_update == 'true'
         uses: softprops/action-gh-release@v1
@@ -53,20 +53,20 @@ jobs:
           name: luci-app-alpha-config
           tag_name: ${{steps.check_version.outputs.latest_version}}
 
+
   job_build_alpha:
     name: Build Alpha Config (master)
     needs: job_check
+    if: needs.job_check.outputs.has_update == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Install packages
         run: |
           echo "Install packages"
-          sudo apt-get -qq update
-          sudo apt-get -qq install -y build-essential clang flex bison g++ gawk gcc-multilib g++-multilib gettext git libncurses5-dev libssl-dev rsync unzip zlib1g-dev file wget python3 python3-pip python3-venv
-          python3 -m ensurepip --upgrade
-          sudo apt-get -qq autoremove --purge
-          sudo apt-get -qq clean
-
+          sudo -E apt-get -qq update
+          sudo -E apt-get -qq install build-essential clang flex bison g++ gawk gcc-multilib g++-multilib gettext git libncurses5-dev libssl-dev python3-distutils rsync unzip zlib1g-dev file wget
+          sudo -E apt-get -qq autoremove --purge
+          sudo -E apt-get -qq clean
       - name: Cache openwrt SDK
         id: cache-sdk
         uses: actions/cache@v3
@@ -92,7 +92,6 @@ jobs:
           echo "CONFIG_PACKAGE_luci-app-alpha-config=m" > .config
           ./scripts/feeds install -d n luci-app-alpha-config
           make download -j8
-
       - name: Configure Alpha Config (master)
         run: |
           cd sdk
@@ -104,7 +103,6 @@ jobs:
           echo "CONFIG_LUCI_LANG_zh_Hans=n" >> .config
           echo "CONFIG_PACKAGE_luci-app-alpha-config=m" >> .config
           make defconfig
-
       - name: Compile Alpha Config (master)
         id: compile
         run: |
@@ -116,7 +114,6 @@ jobs:
           cd ..
           echo "status=success" >> $GITHUB_OUTPUT
           echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-
       - name: Upload Alpha Config (master) ipks to release
         uses: softprops/action-gh-release@v1
         if: steps.compile.outputs.status == 'success'
