@@ -10,8 +10,8 @@ on:
   push:
     branches:
       - 'master'
-    paths:
-      - 'luci-app-alpha-config/Makefile'
+    # paths:
+    #   - 'luci-app-alpha-config/Makefile'
 env:
   TZ: Asia/Jakarta
 
