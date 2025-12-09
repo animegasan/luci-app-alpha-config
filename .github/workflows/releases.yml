@@ -119,6 +119,12 @@ jobs:
           cd ..
           echo "status=success" >> $GITHUB_OUTPUT
           echo "FIRMWARE=$PWD" >> $GITHUB_ENV
+      
+      - name: Build .lmo file
+        run: |
+          msgfmt package/downloads/luci-app-alpha-config/po/zh_Hans/alpha.po \
+                -o package/downloads/luci-app-alpha-config/po/zh_Hans/alpha.lmo
+
       - name: Upload Alpha Config (master) ipks to release
         uses: softprops/action-gh-release@v1
         if: steps.compile.outputs.status == 'success'
@@ -128,10 +134,6 @@ jobs:
           tag_name: ${{needs.job_check.outputs.alpha_version}}
           files: ${{ env.FIRMWARE }}/base/luci-app-*.ipk
 
-      - name: Build .lmo file
-        run: |
-          msgfmt package/downloads/luci-app-alpha-config/po/zh_Hans/alpha.po \
-                -o package/downloads/luci-app-alpha-config/po/zh_Hans/alpha.lmo
 
             
 
