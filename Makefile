@@ -16,7 +16,7 @@ endef
 
 define Package/luci-app-alpha-config/install
     $(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
-    $(INSTALL_DATA) ./po/zh_Hans/alpha-config.lmo $(1)/usr/lib/lua/luci/i18n/
+    $(INSTALL_DATA) ./luci-app-alpha-config/po/zh_Hans/alpha.lmo $(1)/usr/lib/lua/luci/i18n/
 endef
 
 
