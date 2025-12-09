@@ -1,0 +1,133 @@
+msgid ""
+msgstr ""
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Alpha theme configuration"
+msgstr "Alpha 主题配置"
+
+msgid "Here you can set background login and dashboard themes. Chrome is recommended."
+msgstr "你可以在此设置登录页和仪表盘背景主题。推荐使用 Chrome 浏览器。"
+
+msgid "Theme configuration"
+msgstr "主题配置"
+
+msgid "Primary color"
+msgstr "主颜色"
+
+msgid "A HEX color (default: #2222359a)."
+msgstr "HEX 颜色值（默认：#2222359a）。"
+
+msgid "Expecting: valid HEX color value"
+msgstr "错误：请输入有效的 HEX 颜色值"
+
+msgid "Transparency level"
+msgstr "透明度级别"
+
+msgid "Transparent level for menu."
+msgstr "菜单透明度设置。"
+
+msgid "Navigation bar"
+msgstr "导航栏"
+
+msgid "Enable navigation bar menu."
+msgstr "启用导航栏菜单。"
+
+msgid "Background configuration"
+msgstr "背景配置"
+
+msgid "You can upload files such as jpg or png files, and files will be uploaded to %s."
+msgstr "你可以上传 JPG 或 PNG 文件，文件将上传到 %s。"
+
+msgid "Login"
+msgstr "登录页"
+
+msgid "Upload file for login background."
+msgstr "上传登录页背景图片。"
+
+msgid "Upload"
+msgstr "上传"
+
+msgid "Login picture successfully uploaded."
+msgstr "登录背景图片上传成功。"
+
+msgid "Dashboard"
+msgstr "仪表盘"
+
+msgid "Upload file for dashboard background."
+msgstr "上传仪表盘背景图片。"
+
+msgid "Dashboard picture successfully uploaded."
+msgstr "仪表盘背景图片上传成功。"
+
+msgid "Navigation bar configuration"
+msgstr "导航栏配置"
+
+msgid "Add new navigation"
+msgstr "添加新导航项"
+
+msgid "Add new navigation..."
+msgstr "添加新导航项..."
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "Line"
+msgstr "行"
+
+msgid "New tab"
+msgstr "新标签页"
+
+msgid "Icon"
+msgstr "图标"
+
+msgid "Address"
+msgstr "地址"
+
+msgid "Name navigation bar"
+msgstr "导航项名称"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Disable"
+msgstr "禁用"
+
+msgid "Line number"
+msgstr "行号"
+
+msgid "Enter a line number between 1 to 10."
+msgstr "输入 1 到 10 的行号。"
+
+msgid "Open in new tab"
+msgstr "在新标签中打开"
+
+msgid "Enable open links in a new tab."
+msgstr "启用在新标签页打开链接。"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+msgid "Modem"
+msgstr "Modem 设置"
+
+msgid "Neko"
+msgstr "Neko 服务"
+
+msgid "Network"
+msgstr "网络设置"
+
+msgid "Open Clash"
+msgstr "OpenClash"
+
+msgid "Overview"
+msgstr "总览"
+
+msgid "Terminal"
+msgstr "终端"
