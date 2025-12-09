@@ -130,7 +130,7 @@ jobs:
           
       - name: Build .lmo file
         run: |
-          cd package/downloads/luci-app-alpha-config/po/zh_cn
+          cd package/downloads/luci-app-alpha-config/po/zh_Hans
           msgfmt alpha.po -o alpha.lmo
           cd ../../../..
       
