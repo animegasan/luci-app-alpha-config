@@ -8,17 +8,8 @@ LUCI_TITLE:=LuCI for Alpha theme configuration
 LUCI_DESCRIPTION:=Configuration Alpha theme in LuCI.
 
 PKG_MAINTAINER:=Hilman Maulana <hilman0.0maulana@gmail.com>
-PKG_VERSION:=2.2
-PKG_LICENSE:=Apache-2.1
-
-define Package/luci-app-alpha-config/conffiles
-endef
-
-define Package/luci-app-alpha-config/install
-    $(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
-    $(INSTALL_DATA) ./luci-app-alpha-config/po/zh_Hans/alpha.lmo $(1)/usr/lib/lua/luci/i18n/
-endef
-
+PKG_VERSION:=2.1
+PKG_LICENSE:=Apache-2.0
 
 include $(TOPDIR)/feeds/luci/luci.mk
 
