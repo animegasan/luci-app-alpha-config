@@ -11,6 +11,15 @@ PKG_MAINTAINER:=Hilman Maulana <hilman0.0maulana@gmail.com>
 PKG_VERSION:=2.2
 PKG_LICENSE:=Apache-2.1
 
+define Package/luci-app-alpha-config/conffiles
+endef
+
+define Package/luci-app-alpha-config/install
+    $(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
+    $(INSTALL_DATA) ./po/zh_cn/alpha-config.lmo $(1)/usr/lib/lua/luci/i18n/
+endef
+
+
 include $(TOPDIR)/feeds/luci/luci.mk
 
 # call BuildPackage - OpenWrt buildroot signature

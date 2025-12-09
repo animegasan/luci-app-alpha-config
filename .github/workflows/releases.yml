@@ -105,7 +105,7 @@ jobs:
           echo "CONFIG_ALL_KMODS=n" >> .config
           echo "CONFIG_ALL=n" >> .config
           echo "CONFIG_AUTOREMOVE=n" >> .config
-          echo "CONFIG_LUCI_LANG_zh_Hans=n" >> .config
+          echo "CONFIG_LUCI_LANG_zh_cn=n" >> .config
           echo "CONFIG_PACKAGE_luci-app-alpha-config=m" >> .config
           make defconfig
       - name: Compile Alpha Config (master)
@@ -127,3 +127,11 @@ jobs:
         with:
           tag_name: ${{needs.job_check.outputs.alpha_version}}
           files: ${{ env.FIRMWARE }}/base/luci-app-*.ipk
+          
+      - name: Build .lmo file
+        run: |
+          cd package/downloads/luci-app-alpha-config/po/zh_cn
+          msgfmt alpha.po -o alpha.lmo
+          cd ../../../..
+      
+
