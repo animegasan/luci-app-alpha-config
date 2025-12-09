@@ -43,6 +43,7 @@ jobs:
           echo "latest_version: ${latest_version}"
           echo "latest_release: ${latest_release}"
           echo "has_update: ${has_update}"
+
       - name: Generate new tag & release
         if: steps.check_version.outputs.has_update == 'true'
         uses: softprops/action-gh-release@v1
@@ -55,7 +56,6 @@ jobs:
   job_build_alpha:
     name: Build Alpha Config (master)
     needs: job_check
-    if: needs.job_check.outputs.has_update == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Install packages
