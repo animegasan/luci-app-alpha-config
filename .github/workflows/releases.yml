@@ -127,18 +127,11 @@ jobs:
         with:
           tag_name: ${{needs.job_check.outputs.alpha_version}}
           files: ${{ env.FIRMWARE }}/base/luci-app-*.ipk
-          
-
-      - name: Check directory
-        run: |
-          ls -R package/downloads/luci-app-alpha-config
-
-
 
       - name: Build .lmo file
         run: |
-          cd package/downloads/luci-app-alpha-config/po/zh_Hans
-          msgfmt alpha.po -o alpha.lmo
-          cd ../../../..
-      
+          msgfmt package/downloads/luci-app-alpha-config/po/zh_Hans/alpha.po \
+                -o package/downloads/luci-app-alpha-config/po/zh_Hans/alpha.lmo
+
+            
 
